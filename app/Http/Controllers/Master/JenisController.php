@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JenisRequest;
 use App\Models\Jenis;
-use Illuminate\Http\Request;
 
 class JenisController extends Controller
 {

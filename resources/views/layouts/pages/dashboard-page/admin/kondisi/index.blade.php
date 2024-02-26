@@ -7,7 +7,7 @@
     @endif
 
     <div class="col-lg-6">
-        <a href="{{ url('jenis/create') }}" class="btn btn-primary btn-sm mb-4">Tambah Data</a>
+        <a href="{{ url('kondisi/create') }}" class="btn btn-primary btn-sm mb-4">Tambah Data</a>
     </div>
     <div class="table-responsive">
         <table class="table mb-0">
@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($jenis as $row)
+                @foreach ($kondisi as $row)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $row->name }}</td>
                         <td>
-                            <a href="{{ url('jenis/edit/' . $row->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <form action="{{ url('jenis/delete/' . $row->id) }}" method="POST">
+                            <a href="{{ url('kondisi/edit/' . $row->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <form action="{{ url('kondisi/delete/' . $row->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
