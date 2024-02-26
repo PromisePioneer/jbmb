@@ -28,6 +28,10 @@ class MotorController extends Controller
     {
         return view('layouts.pages.dashboard-page.admin.motor.edit', compact('motor'));
     }
+    public function show(Motor $motor)
+    {
+        return view('layouts.pages.dashboard-page.admin.motor.edit', compact('motor'));
+    }
 
     public function update(MotorRequest $request, Motor $motor)
     {

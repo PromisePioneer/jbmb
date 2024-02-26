@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('table_motor', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('merkMotor');
             $table->string('transmisi');
@@ -24,10 +23,10 @@ return new class extends Migration
             $table->unsignedBigInteger('kondisi_id');
             $table->decimal('harga', 20, 2);
             $table->unsignedBigInteger('jenis_id');
+            $table->boolean('status')->default(0);
             $table->string('foto');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('kondisi_id')->references('id')->on('table_kondisi')->onDelete('cascade');
             $table->foreign('jenis_id')->references('id')->on('table_jenis')->onDelete('cascade');
         });

@@ -12,7 +12,6 @@ class Motor extends Model
     use HasFactory;
     protected $table = 'table_motor';
     protected $fillable = [
-        'user_id',
         'name',
         'merkMotor',
         'transmisi',
@@ -23,7 +22,8 @@ class Motor extends Model
         'kondisi_id',
         'harga',
         'jenis_id',
-        'foto'
+        'foto',
+        'status'
     ];
 
     /**

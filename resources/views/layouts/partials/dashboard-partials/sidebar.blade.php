@@ -29,8 +29,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('jenis') }}">Jenis</a></li>
-                        <li><a href="email-read.html">Kondisi</a></li>
-                        <li><a href="email-compose.html">Motor</a></li>
+                        <li><a href="{{ url('kondisi') }}">Kondisi</a></li>
+                        <li><a href="{{ url('motor') }}">Motor</a></li>
                     </ul>
                 </li>
 
