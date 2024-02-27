@@ -31,11 +31,6 @@ class Motor extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
     /**
      * Get the kondisi that owns the Motor
      *
@@ -54,5 +49,10 @@ class Motor extends Model
     public function jenis(): BelongsTo
     {
         return $this->belongsTo(Jenis::class);
+    }
+
+    function tawaran()
+    {
+        return $this->belongsTo(Tawaran::class, 'motor_id');
     }
 }

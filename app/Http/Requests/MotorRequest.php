@@ -23,17 +23,17 @@ class MotorRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'user_id' => ['required', 'exists:table_motor,id'],
             'merkMotor' => ['required', 'string', 'max:255'],
-            'transmisi' => ['required', 'numeric', 'max:255'],
+            'transmisi' => ['required', 'string', 'max:255'],
             'tahun' => ['required'],
             'masaPajak' => ['required'],
-            'kilometer' => ['required', 'numeric', 'max:255'],
+            'kilometer' => ['required', 'numeric'],
             'deskripsi' => ['required'],
             'kondisi_id' => ['required', 'exists:table_kondisi,id'],
             'harga' => ['required'],
             'jenis_id' => ['required', 'exists:table_jenis,id'],
             'foto' => ['required', 'mimes:jpg,jpeg,png'],
+            'status' => ['required', 'boolean']
         ];
     }
 }

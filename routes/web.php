@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\ListMotorController;
 use App\Http\Controllers\Master\KondisiController;
 use App\Http\Controllers\Master\MotorController;
+use App\Http\Controllers\TawaranController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
+Route::get('/motors', [ListMotorController::class, 'index'])->name('motors');
 Auth::routes();
 
 
@@ -44,6 +47,18 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{motor}', 'edit');
             Route::post('update/{motor}', 'update');
             Route::delete('delete/{motor}', 'destroy');
+        });
+    });
+
+    Route::controller(TawaranController::class)->group(function () {
+        Route::prefix('tawaran')->group(function () {
+            Route::get('/', 'index');
+            Route::get('/create', 'create');
+            Route::get('/show', 'show');
+            Route::post('/store', 'store');
+            Route::get('/edit/{tawaran}', 'edit');
+            Route::post('update/{tawaran}', 'update');
+            Route::delete('delete/{tawaran}', 'destroy');
         });
     });
 });

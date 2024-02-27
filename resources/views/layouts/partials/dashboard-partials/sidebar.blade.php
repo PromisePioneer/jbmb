@@ -16,12 +16,12 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class=" waves-effect">
-                        <i class="ti-calendar"></i>
-                        <span>Calendar</span>
+                    <a href="{{ url('tawaran') }}" class=" waves-effect">
+                        <i class="ion-ios-cash"></i>
+                        <span>Tawaran</span>
                     </a>
                 </li>
-
+                <li class="menu-title">Master Data</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ti-menu-alt"></i>
@@ -34,7 +34,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Components</li>
+                <li class="menu-title">Transaksi</li>
 
             </ul>
         </div>

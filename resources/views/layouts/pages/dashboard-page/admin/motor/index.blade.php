@@ -33,7 +33,13 @@
                         <td>{{ $row->tahun }}</td>
                         <td>{{ $row->masaPajak }}</td>
                         <td>{{ $row->kilometer }}</td>
-                        <td>{{ $row->status }}</td>
+                        <td>
+                            @if ($row->status == 0)
+                                <span class="badge bg-warning">Belum Terjual</span>
+                            @else
+                                <span class="badge bg-success">Terjual</span>
+                            @endif
+                        </td>
                         <td>{{ $row->foto }}</td>
                         <td>
                             <a href="{{ url('motor/edit/' . $row->id) }}" class="btn btn-primary btn-sm">Edit</a>
@@ -48,20 +54,8 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="row float-end">
-            <div class="col-lg-6 mt-4">
-                <nav aria-label="...">
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="row justify-content-center mt-4">
+            {{ $motor->links('pagination::bootstrap-5') }}
         </div>
     </div>
 @endsection
