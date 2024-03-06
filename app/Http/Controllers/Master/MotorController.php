@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MotorRequest;
 use App\Models\Motor;
+use Illuminate\Support\Facades\DB;
 
 class MotorController extends Controller
 {
@@ -16,11 +17,35 @@ class MotorController extends Controller
 
     public function create()
     {
-        return view('layouts.pages.dashboard-page.admin.motor.create');
+        $kondisi = DB::table('table_kondisi')->select('table_kondisi.id', 'table_kondisi.name')->get();
+        $jenis = DB::table('table_jenis')->select('table_jenis.id', 'table_jenis.name')->get();
+        $year = range(1945, strftime("%Y", time()));
+        return view(
+            'layouts.pages.dashboard-page.admin.motor.create',
+            [
+                'kondisi' => $kondisi,
+                'jenis' => $jenis,
+                'year' => $year
+            ]
+        );
     }
     public function store(MotorRequest $request)
     {
-        Motor::create($request->validated());
+        $motor = new Motor();
+        $motor->name = $request->name;
+        $motor->merkMotor = $request->merkMotor;
+        $motor->transmisi = $request->transmisi;
+        $motor->tahun = $request->tahun;
+        $motor->masaPajak = $request->masaPajak;
+        $motor->kilometer = $request->kilometer;
+        $motor->deskripsi = $request->deskripsi;
+        $motor->kondisi_id = $request->kondisi;
+        $motor->harga = $request->harga;
+        $motor->jenis_id = $request->jenis;
+        $motor->foto = $request->file('foto')->store('foto/motor', 'public');
+        $motor->status = $request->status;
+        $motor->save();
+
         return redirect('/motor')->with('success', 'Data Berhasil Disimpan');
     }
 

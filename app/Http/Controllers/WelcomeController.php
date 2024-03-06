@@ -12,4 +12,9 @@ class WelcomeController extends Controller
         $motor = Motor::all();
         return view('welcome', compact('motor'));
     }
+
+    function tawarMotor()
+    {
+        //
+    }
 }

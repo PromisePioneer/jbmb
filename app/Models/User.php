@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Motor::class, 'user_id');
     }
+
+    function tawaran()
+    {
+        return $this->hasMany(Tawaran::class, 'user_id');
+    }
 }
